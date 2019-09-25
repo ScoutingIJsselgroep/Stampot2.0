@@ -1,0 +1,5 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/scouti1q/stampot_new.scouting-ijsselgroep.nl/
+    - /bin/cp -R * $DEPLOYPATH
