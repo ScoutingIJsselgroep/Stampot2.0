@@ -3,3 +3,4 @@ deployment:
   tasks:
     - export DEPLOYPATH=/home/scouti1q/stampot_new.scouting-ijsselgroep.nl/
     - /bin/cp -r ./ $DEPLOYPATH
+    - cd $DEPLOYPATH && composer install &&  php artisan migrate --seed && php artisan key:generate
