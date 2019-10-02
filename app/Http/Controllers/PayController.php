@@ -19,11 +19,11 @@ class PayController extends Controller
 
     public function index()
     {
-        $users = DB::table('users')->get();
+        $users = DB::table('users')->orderBy('name')->get();
 
 
         $transactions = DB::table('transactions')
-              ->select('users.id AS user_id', 'users.name AS user_name', 'description', 'mutation')
+              ->select('users.id AS user_id', 'users.name AS user_name', 'users.user_icon AS user_icon', 'description', 'mutation')
               ->orderBy('transactions.transaction_created_at', 'desc')
               ->join('users', 'transactions.user_id', '=', 'users.id')
               ->where('product_id', '=', 0)
