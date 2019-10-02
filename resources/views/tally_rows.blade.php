@@ -49,6 +49,7 @@
             <button type="submit" class="btn btn-success"><i class="fa fa-plus"></i></button>
           </form>
         </div>
+        <!--
         <div style="display:inline-block;">
           <form action = "{{ route('transactions/insert') }}" method = "post">
             <input type = "hidden" name = "_token" value = "<?php echo csrf_token(); ?>">
@@ -56,7 +57,7 @@
             <input type = "hidden" name = "product_id" value = "{{$user->product_id}}">
             <input type = "hidden" name = "amount" value = "-1">
             <button type="submit" class="btn btn-danger"><i class="fa fa-minus"></i></button>
-          </form>
+          </form>-->
         </div>
       </td>
     </tr>
