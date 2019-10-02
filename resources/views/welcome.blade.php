@@ -13,7 +13,7 @@
         <style>
             html, body {
                 background-color: #fff;
-                background: url('storage/stampot.jpg') no-repeat center center fixed;
+                background: url('stampot.jpg') no-repeat center center fixed;
                 -webkit-background-size: cover;
                 -moz-background-size: cover;
                 -o-background-size: cover;
