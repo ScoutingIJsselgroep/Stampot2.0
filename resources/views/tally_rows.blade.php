@@ -46,7 +46,7 @@
             <input type = "hidden" name = "user_id" value = "{{$user->id}}">
             <input type = "hidden" name = "product_id" value = "{{$user->product_id}}">
             <input type = "hidden" name = "amount" value = "1">
-            <button type="submit" class="btn btn-success"><i class="fa fa-plus"></i></button>
+            <button type="submit" class="btn btn-success">+</button>
           </form>
         </div>
         <!--
@@ -73,7 +73,7 @@
       <input type="text" class="form-control" name="query" value="{{$query}}"placeholder="Zoeken" aria-label="Zoeken" aria-describedby="zoeken">
       <div class="input-group-append">
         <button class="btn btn-primary" type="submit" id="zoeken">Zoeken</button>
-        <button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#usermodal">Stamlid toevoegen</button>
+        <button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#usermodal"><i class="fa fa-user"></i> Nieuw <span class="hidden-xs">Stamlid</span></button>
       </div>
   </div>
 </form>
