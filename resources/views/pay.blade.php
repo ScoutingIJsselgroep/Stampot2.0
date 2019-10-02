@@ -35,5 +35,37 @@
           </form>
         </div>
     </div>
+    <h3 class="text-center mb-4 mt-5">Recente transacties</h3>
+    <div class="row">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Stamlid</th>
+            <th scope="col">Omschrijving</th>
+            <th scope="col">Bedrag</th>
+          </tr>
+        </thead>
+        <tbody>
+          @if (count($transactions) === 0)
+            Geen transacties om te tonen
+          @endif
+
+          @foreach ($transactions as $transaction)
+            <tr>
+              <td scope="row">{{$transaction->user_name}}</td>
+              <td scope="row">{{$transaction->description}}</td>
+              <td scope="row">
+                @if ($transaction->mutation >= 0)
+                  <td class="text-success">€ {{$transaction->mutation}}</td>
+                @else
+                  <td class="text-danger">€ {{$transaction->mutation}}</td>
+                @endif
+              </td>
+            </tr>
+          @endforeach
+        </tbody>
+      </table>
+      {{$transactions->links()}}
+    </div>
 </div>
 @endsection

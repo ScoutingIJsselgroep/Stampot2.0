@@ -20,7 +20,16 @@ class PayController extends Controller
     public function index()
     {
         $users = DB::table('users')->get();
-        return view('pay', ['users'=>$users]);
+
+
+        $transactions = DB::table('transactions')
+              ->select('users.id AS user_id', 'users.name AS user_name', 'description', 'mutation')
+              ->orderBy('transactions.transaction_created_at', 'desc')
+              ->join('users', 'transactions.user_id', '=', 'users.id')
+              ->where('product_id', '=', 0)
+              ->paginate(10, ['*'], 'transaction_page');
+
+        return view('pay', ['users'=>$users, 'transactions'=>$transactions]);
     }
 
     public function insert(Request $request)
