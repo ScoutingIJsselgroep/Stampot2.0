@@ -50,7 +50,7 @@
                             <a class="nav-link" href="{{ route('products') }}">{{ __('Producten') }}</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('pay') }}">{{ __('Betalen') }}</a>
+                            <a class="nav-link" href="{{ route('pay') }}">{{ __('Opwaarderen') }}</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('transactions') }}">{{ __('Transacties') }}</a>
