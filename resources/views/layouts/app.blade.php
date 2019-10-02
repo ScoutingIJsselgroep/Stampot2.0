@@ -41,19 +41,19 @@
 
                       @else
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('home') }}">{{ __('Mijn Stampot') }}</a>
+                            <a class="nav-link" href="{{ route('home') }}"><i class="fa fa-user"></i> {{ __('Mijn Stampot') }}</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('tally/rows') }}">{{ __('Streeplijst') }}</a>
+                            <a class="nav-link" href="{{ route('tally/rows') }}"><i class="fa fa-list"></i> {{ __('Streeplijst') }}</a>
                         </li>
                         <li class="nav-item dropdown">
                           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            {{ __('Administrator') }}
+                            <i class="fa fa-users-cog"></i> {{ __('Administrator') }}
                           </a>
                           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="nav-link" href="{{ route('products') }}">{{ __('Producten') }}</a>
-                            <a class="nav-link" href="{{ route('pay') }}">{{ __('Opwaarderen') }}</a>
-                            <a class="nav-link" href="{{ route('transactions') }}">{{ __('Transacties') }}</a>
+                            <a class="nav-link" href="{{ route('products') }}"><i class="fa fa-fw fa-beer"></i> {{ __('Producten') }}</a>
+                            <a class="nav-link" href="{{ route('pay') }}"><i class="fa fa-fw fa-credit-card"></i> {{ __('Opwaarderen') }}</a>
+                            <a class="nav-link" href="{{ route('transactions') }}"><i class="fa fa-fw fa-receipt"></i> {{ __('Transacties') }}</a>
                           </div>
                         </li>
 
