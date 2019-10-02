@@ -75,7 +75,7 @@
         <button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#usermodal">Stamlid toevoegen</button>
       </div>
   </div>
-<form>
+</form>
 <table class="table">
   <thead>
     <tr>
