@@ -46,15 +46,17 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('tally/rows') }}">{{ __('Streeplijst') }}</a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item dropdown">
+                          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            {{ __('Administrator') }}
+                          </a>
+                          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a class="nav-link" href="{{ route('products') }}">{{ __('Producten') }}</a>
-                        </li>
-                        <li class="nav-item">
                             <a class="nav-link" href="{{ route('pay') }}">{{ __('Opwaarderen') }}</a>
-                        </li>
-                        <li class="nav-item">
                             <a class="nav-link" href="{{ route('transactions') }}">{{ __('Transacties') }}</a>
+                          </div>
                         </li>
+
                       @endguest
                     </ul>
 
@@ -73,7 +75,12 @@
                         @else
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }} <span class="caret"></span>
+                                    @if (Auth::user()->user_icon !== Null)
+                                      <img src="{{Storage::disk('public')->url(Auth::user()->user_icon)}}" style="max-height: 25px; max-width:25px;" class="card-img rounded-circle" alt="{{Auth::user()->user_icon}}"> {{Auth::user()->name}}
+                                    @else
+                                      <img src="{{ Avatar::create(Auth::user()->name)->toBase64()}}" style="max-height: 25px; max-width:25px;" class="card-img rounded-circle" alt=""> {{Auth::user()->name}}
+                                    @endif
+                                    <span class="caret"></span>
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
@@ -87,6 +94,17 @@
                                         @csrf
                                     </form>
                                 </div>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('logout') }}"
+                                   onclick="event.preventDefault();
+                                                 document.getElementById('logout-form').submit();">
+                                    <i class="fa fa-lock"></i>
+                                </a>
+
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                    @csrf
+                                </form>
                             </li>
                         @endguest
                     </ul>
