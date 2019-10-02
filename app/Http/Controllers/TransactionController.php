@@ -27,7 +27,7 @@ class TransactionController extends Controller
   {
     $transactionDates = DB::table('transactions')
           ->select(DB::raw('CAST((transaction_created_at - INTERVAL 9 HOUR) AS DATE) AS date, SUM(amount) AS num_transactions'))
-          ->orderBy('date', 'desc')
+          ->orderBy('date', 'desc', 'amount')
           ->groupBy(DB::raw('CAST((transaction_created_at - INTERVAL 9 HOUR) AS DATE)'))
           ->where('product_id', '!=', 0)
           ->paginate(10, ['*'], 'date_page');
@@ -42,7 +42,7 @@ class TransactionController extends Controller
           ->join('products', 'transactions.product_id', '=', 'products.id')
           ->orderBy('user_name', 'asc')
           ->whereDate(DB::raw('CAST((transaction_created_at - INTERVAL 9 HOUR) AS DATE)'), $request->date)
-          ->groupBy('user_id', 'product_id', DB::raw('CAST((transaction_created_at - INTERVAL 9 HOUR) AS DATE)'))
+          ->groupBy('user_id', 'users.name', 'products.filename', 'products.name', 'amount', 'product_id', DB::raw('CAST((transaction_created_at - INTERVAL 9 HOUR) AS DATE)'))
           ->paginate(100, ['*'], 'transaction_page');
     return view('transaction_details', ['transaction_details'=>$transaction_details, 'date'=>$request->date]);
   }
