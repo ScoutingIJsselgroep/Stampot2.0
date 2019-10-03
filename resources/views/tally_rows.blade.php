@@ -73,7 +73,9 @@
       <input type="text" class="form-control" name="query" value="{{$query}}"placeholder="Zoeken" aria-label="Zoeken" aria-describedby="zoeken">
       <div class="input-group-append">
         <button class="btn btn-primary" type="submit" id="zoeken">Zoeken</button>
+        @if (\Auth::user()->admin === 1)
         <button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#usermodal"><i class="fa fa-user"></i> Nieuw <span class="hidden-xs">Stamlid</span></button>
+        @endif
       </div>
   </div>
 </form>
