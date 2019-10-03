@@ -1,4 +1,4 @@
-/*
+e/*
  Copyright 2016 Google Inc. All Rights Reserved.
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -58,7 +58,7 @@ self.addEventListener('fetch', event => {
         }
 
         return caches.open(RUNTIME).then(cache => {
-          return fetch(event.request).then(response => {
+          return fetch(event.request, { redirect: 'follow' }).then(response => {
             // Put a copy of the response in the runtime cache.
             return cache.put(event.request, response.clone()).then(() => {
               return response;
