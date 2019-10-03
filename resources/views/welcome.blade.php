@@ -6,6 +6,9 @@
 
         <title>Stampot | Scouting IJsselgroep</title>
 
+        <!-- Progressive web app -->
+        <link rel="manifest" href="/manifest.json">
+
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
 
