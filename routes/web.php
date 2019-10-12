@@ -19,6 +19,9 @@ Route::get('/pay', 'PayController@index')->name('pay');
 Route::post('/pay', 'PayController@insert')->name('pay/insert');
 
 Route::post('/users', 'HomeController@insert')->name('users/insert');
+Route::get('/users/profile', 'HomeController@profile')->name('users/profile');
+Route::post('/users/edit', 'HomeController@edit')->name('users/edit');
+
 
 Route::get('/products', 'ProductController@index')->name('products');
 Route::post('/products', 'ProductController@insert')->name('products/insert');

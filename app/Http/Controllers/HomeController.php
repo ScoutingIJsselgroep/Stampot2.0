@@ -40,6 +40,25 @@ class HomeController extends Controller
         return view('home', ['users' => $users, 'products'=>$products, 'num_this_year'=>$num_this_year, 'amount_money'=>$amount_money, 'transactions'=>$transactions, 'current_user' => $current_user, 'num_transactions'=>$num_transactions]);
     }
 
+    public function profile(Request $request)
+    {
+      return view('user');
+    }
+
+    public function edit(Request $request)
+    {
+      $user_icon = $request->file('user_icon');
+      $extension = $user_icon->getClientOriginalExtension();
+      Storage::disk('public')->put($user_icon->getFilename().'.'.$extension,  File::get($user_icon));
+      $filename = $user_icon->getFilename().'.'.$extension;
+
+      $data = array("user_icon"=>$filename);
+
+      DB::table('users')->where('id', \Auth::user()->id)->update($data);
+
+      return redirect()->back()->with('message', 'Profielfoto geupdate.');
+    }
+
     /**
      * Add a new user.
      */
