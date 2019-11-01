@@ -33,3 +33,5 @@ Route::post('/transactions', 'TransactionController@singleTransaction')->name('t
 
 Route::get('/tally', 'TallyController@index')->name('tally');
 Route::get('/tally/rows', 'TallyController@rows')->name('tally/rows');
+
+Route::get('/users', 'UserController@index')->name('users');

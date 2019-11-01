@@ -58,6 +58,7 @@
                             <a class="nav-link" href="{{ route('products') }}"><i class="fa fa-fw fa-beer"></i> {{ __('Producten') }}</a>
                             <a class="nav-link" href="{{ route('pay') }}"><i class="fa fa-fw fa-credit-card"></i> {{ __('Opwaarderen') }}</a>
                             <a class="nav-link" href="{{ route('transactions') }}"><i class="fa fa-fw fa-receipt"></i> {{ __('Transacties') }}</a>
+                            <a class="nav-link" href="{{ route('users') }}"><i class="fa fa-fw fa-users"></i> {{ __('Gebruikers') }}</a>
                           </div>
                         </li>
                         @endif
