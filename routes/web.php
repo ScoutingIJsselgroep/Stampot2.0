@@ -15,23 +15,23 @@ Auth::routes();
 Route::get('/', 'WelcomeController@index')->name('welcome');
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/pay', 'PayController@index')->name('pay');
-Route::post('/pay', 'PayController@insert')->name('pay/insert');
+Route::get('/administrator/pay', 'PayController@index')->name('pay');
+Route::post('/administrator/pay', 'PayController@insert')->name('pay/insert');
 
 Route::post('/users', 'HomeController@insert')->name('users/insert');
 Route::get('/users/profile', 'HomeController@profile')->name('users/profile');
 Route::post('/users/edit', 'HomeController@edit')->name('users/edit');
 
 
-Route::get('/products', 'ProductController@index')->name('products');
-Route::post('/products', 'ProductController@insert')->name('products/insert');
-Route::get('/products/delete/{id}', 'ProductController@delete')->name('products/delete');
+Route::get('/administrator/products', 'ProductController@index')->name('products');
+Route::post('/administrator/products', 'ProductController@insert')->name('products/insert');
+Route::get('/administrator/products/delete/{id}', 'ProductController@delete')->name('products/delete');
 
-Route::get('/transactions', 'TransactionController@index')->name('transactions');
-Route::get('/transactions/{date}', 'TransactionController@transactionDetails')->name('transactions/details');
-Route::post('/transactions', 'TransactionController@singleTransaction')->name('transactions/insert');
+Route::get('/administrator/transactions', 'TransactionController@index')->name('transactions');
+Route::get('/administrator/transactions/{date}', 'TransactionController@transactionDetails')->name('transactions/details');
+Route::post('/administrator/transactions', 'TransactionController@singleTransaction')->name('transactions/insert');
 
 Route::get('/tally', 'TallyController@index')->name('tally');
 Route::get('/tally/rows', 'TallyController@rows')->name('tally/rows');
 
-Route::get('/users', 'UserController@index')->name('users');
+Route::get('/administrator/users', 'UserController@index')->name('users');
