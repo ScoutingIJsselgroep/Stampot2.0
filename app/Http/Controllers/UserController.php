@@ -30,11 +30,13 @@ class UserController extends Controller
 
         if ($query !== '') {
           $users = DB::table('users')
-                    ->where('name', 'like', '%'.$query.'%')
-                    ->paginate(15, ['*'], 'users');
+            ->orderBy('name', 'asc')
+            ->where('name', 'like', '%'.$query.'%')
+            ->paginate(15, ['*'], 'users');
         } else {
           $users = DB::table('users')
-                    ->paginate(15, ['*'], 'users');
+            ->orderBy('name', 'asc')
+            ->paginate(15, ['*'], 'users');
         }
 
         return view('users', ['users' => $users, 'query' => $query]);
