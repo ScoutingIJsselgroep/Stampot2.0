@@ -6,3 +6,13 @@
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
+
+
+div.form-transaction {
+  display: inline-block;
+
+  form {
+    min-width: 35px;
+    min-height: 35px;
+  }
+}

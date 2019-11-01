@@ -40,24 +40,23 @@
         <img src="{{Storage::disk('public')->url($user->product_icon)}}" style="max-height: 25px; max-width:25px;" class="card-img rounded-circle" alt="{{$user->product_icon}}"> {{$user->product_name}}
       </td>
       <td>
-        <div style="display:inline-block;">
+        <div class="form-transaction">
           <form action = "{{ route('transactions/insert') }}" method = "post">
             <input type = "hidden" name = "_token" value = "<?php echo csrf_token(); ?>">
             <input type = "hidden" name = "user_id" value = "{{$user->id}}">
             <input type = "hidden" name = "product_id" value = "{{$user->product_id}}">
             <input type = "hidden" name = "amount" value = "1">
-            <button type="submit" class="btn btn-success">+</button>
+            <button type="submit" class="btn increment btn-success">+</button>
           </form>
         </div>
-        <!--
-        <div style="display:inline-block;">
+        <div class="form-transaction">
           <form action = "{{ route('transactions/insert') }}" method = "post">
             <input type = "hidden" name = "_token" value = "<?php echo csrf_token(); ?>">
             <input type = "hidden" name = "user_id" value = "{{$user->id}}">
             <input type = "hidden" name = "product_id" value = "{{$user->product_id}}">
             <input type = "hidden" name = "amount" value = "-1">
-            <button type="submit" class="btn btn-danger"><i class="fa fa-minus"></i></button>
-          </form>-->
+            <button type="submit" class="btn increment btn-danger">‒</button>
+          </form>
         </div>
       </td>
     </tr>
