@@ -48,7 +48,7 @@ class TallyController extends Controller
       // Subquery Joins
       $latestTransactions = DB::table('transactions')
                             ->select('user_id', 'product_id', DB::raw('products.name AS product_name'), DB::raw('products.filename AS product_icon'), DB::raw('SUM(amount) AS sum_amount'))
-                            ->groupBy('user_id', 'product_id', 'products.name', 'products.filename', 'amount')
+                            ->groupBy('user_id', 'product_id', 'products.name', 'products.filename')
                             ->join('products', 'products.id', '=', 'transactions.product_id')
                             ->where('transaction_created_at', '>=', DB::raw('NOW() - INTERVAL 16 HOUR'))
                             ->where('products.deleted', '=', 0);
