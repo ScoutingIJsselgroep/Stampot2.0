@@ -23,6 +23,7 @@ class StatsController extends Controller
           ->orderBy('amount', 'desc')
           ->whereYear('transaction_created_at', '=', date('Y'))
           ->whereMonth('transaction_created_at', '=', date('m'))
+          ->limit(5)
           ->groupBy('user_id', 'users.name', 'amount', DB::raw('MONTH(transaction_created_at)'))
           ->paginate(100, ['*'], 'transaction_page');
     return view('horserace', ['transaction_details'=>$transaction_details]);
