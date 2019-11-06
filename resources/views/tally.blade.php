@@ -51,8 +51,8 @@
         </div>
       </div>
     @endforeach
-    {{ $users->links() }}
   </div>
+  {{ $users->links() }}
 </div>
 @endsection
 
