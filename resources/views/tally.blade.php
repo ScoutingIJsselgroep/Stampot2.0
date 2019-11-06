@@ -5,7 +5,6 @@
   <div class="jumbotron">
     <h1 class="display-4">Streeplijst</h1>
     <p class="lead">Hieronder vindt je de streeplijst.</p>
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#usermodal">Stamlid toevoegen</button>
   </div>
   @if(session()->has('message'))
     <div class="alert alert-success">
@@ -19,12 +18,12 @@
           <button class="btn btn-outline-secondary" type="submit" id="zoeken">Zoeken</button>
         </div>
     </div>
-  <form>
+  </form>
   <div class="row">
     @foreach($users as $user)
       <div class="col-md-3 col-sm-4">
         <div class="card">
-          <img src="{{ Avatar::create($user->name.'a')->setTheme('colorful')->toBase64()}}" class="card-img-top" alt="">
+          <img style="margin-left: auto; margin-right: auto; width: 40%; margin-top: 10px;" src="{{ Avatar::create($user->name.'a')->setTheme('colorful')->toBase64()}}" class="card-img-top" alt="">
           <div class="card-body">
             @if ($user->balance >= 0)
               <h5 class="float-right text-success">{{$user->balance}}</h5>
@@ -38,8 +37,13 @@
                   <input type = "hidden" name = "_token" value = "<?php echo csrf_token(); ?>">
                   <input type = "hidden" name = "user_id" value = "{{$user->id}}">
                   <input type = "hidden" name = "product_id" value = "{{$product->id}}">
-                  <input type = "hidden" name = "amount" value = "1">
-                  <button type="submit" class="btn btn-primary">{{$product->name}}</button>
+                  <div class="input-group">
+                    <input name = "amount" size="2" value = "1" />
+                    <div class="input-group-append">
+                      <button type="submit" class="btn btn-primary">{{$product->name}}</button>
+                    </div>
+                    &nbsp;
+                  </div>
                 </form>
               @endforeach
             </div>
