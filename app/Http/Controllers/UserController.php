@@ -7,6 +7,10 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\File;
 
+use App\Mail\Betalingsherinnering;
+
+use Mail;
+
 class UserController extends Controller
 {
     /**
@@ -40,6 +44,21 @@ class UserController extends Controller
         }
 
         return view('users', ['users' => $users, 'query' => $query]);
+    }
+
+    public function invoice(Request $request)
+    {
+
+      $users = DB::table('users')->where('balance', '<', 0)->get();
+      foreach ($users as $user) {
+        if (isset($user->email)) {
+          $data = array('name'=>$user->name, 'balance'=>$user->balance);
+
+          Mail::to($user->email)->send(new Betalingsherinnering($data));
+        }
+      }
+      
+      return redirect()->back()->with('message', 'Betalingsherinnering gestuurd.');
     }
 
 }

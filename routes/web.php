@@ -35,3 +35,4 @@ Route::get('/tally', 'TallyController@index')->name('tally');
 Route::get('/tally/rows', 'TallyController@rows')->name('tally/rows');
 
 Route::get('/administrator/users', 'UserController@index')->name('users');
+Route::post('/administrator/users/invoice', 'UserController@invoice')->name('users/invoice');

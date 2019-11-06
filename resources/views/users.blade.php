@@ -5,8 +5,15 @@
   <div class="jumbotron">
     <h1 class="display-4">Gebruikers</h1>
     <p class="lead">Hieronder vindt je een lijst van stamleden.</p>
-    <button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#usermodal"><i class="fa fa-user"></i> Nieuw <span class="hidden-xs">Stamlid</span></button>
+    <button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#usermodal"><i class="fa fa-user"></i> Nieuw Stamlid</button>
+
+    <button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#betalingsherinnering"><i class="fa fa-money"></i> Verstuur Betalingsherinnering</button>
   </div>
+  @if(session()->has('message'))
+    <div class="alert alert-success">
+        {{ session()->get('message') }}
+    </div>
+  @endif
   <form action = "{{ route('users') }}" method="get">
     <div class="input-group mb-3">
         <input type="text" class="form-control" name="query" value="{{$query}}" placeholder="Zoeken" aria-label="Zoeken" aria-describedby="zoeken">
@@ -51,6 +58,29 @@
 @endsection
 
 @section('modal')
+<div class="modal fade" id="betalingsherinnering" tabindex="-1" role="dialog" aria-labelledby="betalingsherinneringlabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <form action = "{{ route('users/invoice') }}" method="post" enctype="multipart/form-data">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="betalingsherinneringlabel">Verstuur betalingsherinnering</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <input type = "hidden" name = "_token" value = "<?php echo csrf_token(); ?>">
+            Je staat op het punt om een betalingsherinnering te sturen aan alle stamleden die een negatief saldo hebben.
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-danger">Betalingsherinnering sturen</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuleren</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
 <div class="modal fade" id="usermodal" tabindex="-1" role="dialog" aria-labelledby="usermodallabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <form action = "{{ route('users/insert') }}" method="post" enctype="multipart/form-data">
