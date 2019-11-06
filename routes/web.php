@@ -13,6 +13,7 @@
 
 Auth::routes();
 Route::get('/', 'WelcomeController@index')->name('welcome');
+Route::get('/stats/horserace', 'StatsController@horserace')->name('stats/horserace');
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/administrator/pay', 'PayController@index')->name('pay');
