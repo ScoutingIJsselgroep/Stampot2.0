@@ -31,7 +31,7 @@ Route::get('/administrator/transactions', 'TransactionController@index')->name('
 Route::get('/administrator/transactions/{date}', 'TransactionController@transactionDetails')->name('transactions/details');
 Route::post('/administrator/transactions', 'TransactionController@singleTransaction')->name('transactions/insert');
 
-Route::get('/tally', 'TallyController@index')->name('tally');
+Route::get('/administrator/tally', 'TallyController@index')->name('tally');
 Route::get('/tally/rows', 'TallyController@rows')->name('tally/rows');
 
 Route::get('/administrator/users', 'UserController@index')->name('users');
