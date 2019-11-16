@@ -27,4 +27,15 @@ class StatsController extends Controller
           ->paginate(5, ['*'], 'transaction_page');
     return view('horserace', ['transaction_details'=>$transaction_details]);
   }
+
+  public function totals()
+  {
+    $transaction_details = DB::table('transactions')
+          ->select('user_id', 'users.name AS user_name', DB::raw('SUM(amount) AS amount'))
+          ->join('users', 'transactions.user_id', '=', 'users.id')
+          ->join('products', 'transactions.product_id', '=', 'products.id')
+          ->orderBy('amount', 'desc')
+          ->groupBy('user_id', 'users.name', 'amount', DB::raw('MONTH(transaction_created_at)'))
+    return view('horserace', ['transaction_details'=>$transaction_details]);
+  }
 }
