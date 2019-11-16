@@ -36,6 +36,6 @@ class StatsController extends Controller
           ->join('products', 'transactions.product_id', '=', 'products.id')
           ->orderBy('amount', 'desc')
           ->groupBy('user_id', 'users.name', 'amount', DB::raw('MONTH(transaction_created_at)'));
-    return view('horserace', ['transaction_details'=>$transaction_details]);
+    return view('totals', ['transaction_details'=>$transaction_details]);
   }
 }
