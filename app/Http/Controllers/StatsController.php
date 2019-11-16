@@ -35,7 +35,7 @@ class StatsController extends Controller
           ->join('users', 'transactions.user_id', '=', 'users.id')
           ->join('products', 'transactions.product_id', '=', 'products.id')
           ->orderBy('amount', 'desc')
-          ->groupBy('user_id', 'users.name', 'amount', DB::raw('MONTH(transaction_created_at)'));
+          ->groupBy('user_id', 'users.name', 'amount', DB::raw('MONTH(transaction_created_at)'))
           ->paginate(100, ['*'], 'transaction_page');
     return view('totals', ['transaction_details'=>$transaction_details]);
   }
