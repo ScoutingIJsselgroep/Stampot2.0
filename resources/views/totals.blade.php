@@ -3,8 +3,8 @@
 @section('content')
 <div class="container">
   <div class="jumbotron">
-    <h1 class="display-4">Paardenrace</h1>
-    <p class="lead">Gestart op {{date('01 M Y')}}. Wie haalt als eerste de finish van 50 drankjes?</p>
+    <h1 class="display-4">Totalen</h1>
+    <p class="lead">Gestart in 2013.</p>
   </div>
 
   @if (count($transaction_details) === 0)
