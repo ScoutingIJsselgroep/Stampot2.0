@@ -83,11 +83,7 @@
       <tr>
         <td scope="row">{{$transaction->description}}</td>
         <td>
-          @if ($transaction->user_icon !== Null)
-            <img src="{{Storage::disk('public')->url($transaction->user_icon)}}" style="max-height: 25px; max-width:25px;" class="card-img" alt="{{$transaction->user_icon}}"> {{$transaction->name}}
-          @else
             <img src="{{ Avatar::create($transaction->name)->toBase64()}}" style="max-height: 25px; max-width:25px;" class="card-img" alt=""> {{$transaction->name}}
-          @endif
         </td>
         <td>{{$transaction->transaction_created_at}}</td>
         @if ($transaction->mutation >= 0)
