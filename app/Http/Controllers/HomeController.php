@@ -64,15 +64,9 @@ class HomeController extends Controller
      */
     public function insert(Request $request)
     {
-        // Save icon
-        $user_icon = $request->file('user_icon');
-        $extension = $user_icon->getClientOriginalExtension();
-        Storage::disk('public')->put($user_icon->getFilename().'.'.$extension,  File::get($user_icon));
-
-        $filename = $user_icon->getFilename().'.'.$extension;
         $name = $request->input('name');
         $email = $request->input('email');
-        $data = array('name'=>$name, "email"=>$email, "password"=>"", "user_icon"=>$filename);
+        $data = array('name'=>$name, "email"=>$email, "password"=>"");
         DB::table('users')->insert($data);
 
         return redirect()->route('home');
