@@ -30,11 +30,7 @@
           @foreach ($transactions as $transaction)
             <tr>
               <td scope="row">
-                @if ($transaction->user_icon !== Null)
-                  <img src="{{Storage::disk('public')->url($transaction->user_icon)}}" style="max-height: 25px; max-width:25px;" class="card-img" alt="{{$transaction->user_icon}}"> {{$transaction->user_name}}
-                @else
-                  <img src="{{ Avatar::create($transaction->user_name)->toBase64()}}" style="max-height: 25px; max-width:25px;" class="card-img" alt=""> {{$transaction->user_name}}
-                @endif
+                 <img src="{{ Avatar::create($transaction->user_name)->toBase64()}}" style="max-height: 25px; max-width:25px;" class="card-img" alt=""> {{$transaction->user_name}}
               </td>
               <td scope="row">{{$transaction->description}}</td>
               <td scope="row">
