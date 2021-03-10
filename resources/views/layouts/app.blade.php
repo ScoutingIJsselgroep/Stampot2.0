@@ -85,11 +85,7 @@
                         @else
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    @if (Auth::user()->user_icon !== Null)
-                                      <img src="{{Storage::disk('public')->url(Auth::user()->user_icon)}}" style="max-height: 25px; max-width:25px;" class="card-img rounded-circle" alt="{{Auth::user()->user_icon}}"> {{Auth::user()->name}}
-                                    @else
-                                      <img src="{{ Avatar::create(Auth::user()->name)->toBase64()}}" style="max-height: 25px; max-width:25px;" class="card-img rounded-circle" alt=""> {{Auth::user()->name}}
-                                    @endif
+                                    <img src="{{ Avatar::create(Auth::user()->name)->toBase64()}}" style="max-height: 25px; max-width:25px;" class="card-img rounded-circle" alt=""> {{Auth::user()->name}}
                                     <span class="caret"></span>
                                 </a>
 
