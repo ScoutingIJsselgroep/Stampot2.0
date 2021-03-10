@@ -27,11 +27,7 @@
     }?>
     <tr>
       <td>
-        @if ($user->user_icon !== Null)
-          <img src="{{Storage::disk('public')->url($user->user_icon)}}" style="max-height: 25px; max-width:25px;" class="card-img rounded-circle" alt="{{$user->user_icon}}"> {{$user->name}}
-        @else
-          <img src="{{ Avatar::create($user->name)->toBase64()}}" style="max-height: 25px; max-width:25px;" class="card-img rounded-circle" alt=""> {{$user->name}}
-        @endif
+        <img src="{{ Avatar::create($user->name)->toBase64()}}" style="max-height: 25px; max-width:25px;" class="card-img rounded-circle" alt=""> {{$user->name}}
       </td>
       <td>
         {{$user->sum_amount}}
@@ -94,11 +90,7 @@
   @foreach($idle_users as $user)
   <tr>
     <td>
-      @if ($user->user_icon !== Null)
-        <img src="{{Storage::disk('public')->url($user->user_icon)}}" style="max-height: 25px; max-width:25px;" class="card-img" alt="{{$user->user_icon}}"> {{$user->name}}
-      @else
-        <img src="{{ Avatar::create($user->name)->toBase64()}}" style="max-height: 25px; max-width:25px;" class="card-img" alt=""> {{$user->name}}
-      @endif
+      <img src="{{ Avatar::create($user->name)->toBase64()}}" style="max-height: 25px; max-width:25px;" class="card-img" alt=""> {{$user->name}}
     </td>
     @foreach($products as $product)
     <td>
