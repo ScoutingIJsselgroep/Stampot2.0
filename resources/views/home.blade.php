@@ -5,7 +5,7 @@
   <div class="jumbotron">
     <h1 class="display-4">Stampot</h1>
     <p class="lead">Een handige manier om de Stampot bij te houden! Onderstaande informatie biedt inzicht in <em>jouw</em> gebruik.</p>
-    <a href="{{route('tally/rows')}}" class="btn btn-primary"><i class="fa fa-pencil"></i> Streeplijst</a> <a href="https://bunq.me/ijsselgroepstampot" class="btn btn-outline-secondary"><i class="fa fa-credit-card"></i> Opwaarderen</a>
+    <a href="{{route('tally/rows')}}" class="btn btn-primary"><i class="fa fa-pencil"></i> Streeplijst</a>
   </div>
   @if(session()->has('message'))
     <div class="alert alert-success">
