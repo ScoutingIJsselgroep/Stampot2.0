@@ -49,9 +49,6 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('tally/rows') }}"><i class="fa fa-list"></i> {{ __('Streeplijst') }}</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('stats/horserace') }}"><i class="fa fa-horse"></i> {{ __('Paardenrace') }}</a>
-                        </li>
                         @if (\Auth::user()->admin == 1)
                         <li class="nav-item dropdown">
                           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
