@@ -101,10 +101,6 @@
               <label for="email">E-mail</label>
               <input type="email" class="form-control" name="email" id="email" aria-describedby="email" placeholder="b.hinault@gmail.com">
             </div>
-            <div class="form-group">
-              <label for="user_icon">Avatar</label>
-              <input type="file" class="form-control" name="user_icon" id="user_icon" aria-describedby="user_icon"/>
-            </div>
         </div>
         <div class="modal-footer">
           <button type="submit" class="btn btn-primary">Toevoegen</button>
