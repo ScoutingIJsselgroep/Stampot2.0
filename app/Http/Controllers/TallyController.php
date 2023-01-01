@@ -26,7 +26,7 @@ class TallyController extends Controller
   public function index(Request $request)
   {
 
-      $transactions = DB::select('SELECT * FROM transactions', [1]);
+      $transactions = DB::select('SELECT * FROM transactions', []);
       $products = DB::select('SELECT * FROM products WHERE deleted = 0', []);
       $query = $request->input('query');
       if ($query !== ''){
