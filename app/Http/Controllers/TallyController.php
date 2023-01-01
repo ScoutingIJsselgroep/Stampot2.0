@@ -58,7 +58,7 @@ class TallyController extends Controller
                             ->groupBy('user_id');
 
       $consuming_users = DB::table('users')
-                ->joinSub($latestTransactions, 'latest_transactions', function ($join) {
+                ->leftJoinSub($latestTransactions, 'latest_transactions', function ($join) {
                       $join->on('users.id', '=', 'latest_transactions.user_id');
                   })
                 ->orderBy('name', 'asc')
