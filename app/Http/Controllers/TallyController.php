@@ -58,7 +58,7 @@ class TallyController extends Controller
                             ->groupBy('user_id');
 
       $consuming_users = DB::table('users')
-                ->leftJoinSub($latestTransactions, 'latest_transactions', function ($join) {
+                ->joinSub($latestTransactions, 'latest_transactions', function ($join) {
                       $join->on('users.id', '=', 'latest_transactions.user_id');
                   })
                 ->orderBy('name', 'asc')
@@ -66,7 +66,7 @@ class TallyController extends Controller
 
       if ($query !== '') {
         $idle_users = DB::table('users')
-                  ->joinSub($nonLatestTransactions, 'latest_transactions', function ($join) {
+                  ->leftJoinSub($nonLatestTransactions, 'latest_transactions', function ($join) {
                         $join->on('users.id', '=', 'latest_transactions.user_id');
                     })
                   ->where('name', 'like', '%'.$query.'%')
@@ -74,7 +74,7 @@ class TallyController extends Controller
                   ->paginate(10, ['*'], 'idle_users');
       } else {
         $idle_users = DB::table('users')
-                  ->joinSub($nonLatestTransactions, 'latest_transactions', function ($join) {
+                  ->leftJoinSub($nonLatestTransactions, 'latest_transactions', function ($join) {
                         $join->on('users.id', '=', 'latest_transactions.user_id');
                     })
                   ->latest('transaction_created_at')
