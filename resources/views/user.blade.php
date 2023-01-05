@@ -14,10 +14,14 @@
   <form action = "{{ route('users/edit') }}" method="post" enctype="multipart/form-data">
     <input type = "hidden" name = "_token" value = "<?php echo csrf_token(); ?>">
     <div class="form-group">
+      <label for="email">E-mailadres</label>
+      <input type="email" class="form-control" name="email" id="email" aria-describedby="email"/>
+    </div>
+    <div class="form-group">
       <label for="user_icon">Avatar</label>
       <input type="file" class="form-control" name="user_icon" id="user_icon" aria-describedby="user_icon"/>
     </div>
-    <button type="submit" class="btn btn-primary">Foto wijzigen</button>
+    <button type="submit" class="btn btn-primary">Wijzigingen opslaan</button>
   </form>
 </div>
 @endsection

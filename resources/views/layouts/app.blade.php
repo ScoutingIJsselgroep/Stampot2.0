@@ -61,6 +61,7 @@
                             <a class="nav-link" href="{{ route('transactions') }}"><i class="fa fa-fw fa-receipt"></i> {{ __('Transacties') }}</a>
                             <a class="nav-link" href="{{ route('users') }}"><i class="fa fa-fw fa-users"></i> {{ __('Gebruikers') }}</a>
                             <a class="nav-link" href="{{ route('tally') }}"><i class="fa fa-fw fa-list"></i> {{ __('Streeplijst') }}</a>
+                            <a class="nav-link" href="{{ route('stats/totals') }}"><i class="fa fa-fw fa-list"></i> {{ __('Dashboard') }}</a>
                           </div>
                         </li>
                         @endif
